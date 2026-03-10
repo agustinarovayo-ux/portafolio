@@ -1,0 +1,1338 @@
+/* ==========================================================================
+   STYLES.CSS - Portafolio Agus Artes Gráficas
+   ==========================================================================
+   Organization:
+   1. Base / Global
+   2. Page: INICIO (index.html)
+   3. Page: PROYECTOS (proyectos.html) - by project
+   4. Page: SOBRE MÍ (sobremi.html)
+   5. Page: CONTACTO (contactoportafolio.html)
+   6. Shared: Top bar, nav, buttons, footer
+   ========================================================================== */
+
+/* ==========================================================================
+   1. BASE / GLOBAL
+   ========================================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    padding-top: 70px; /* space for fixed top bar */
+}
+
+/* ----- Page-specific body backgrounds / nav ----- */
+/* Contact page - contactoportafolio.html */
+body.page-contacto {
+    background-image: url('./fondocontacto.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Index page - index.html */
+body.page-inicio {
+    background: #faf9f7;
+    color: rgba(0, 0, 0, 0.9);
+    padding-top: 0; /* allow hero image to sit behind navbar */
+}
+
+/* Sobre mí page - sobremi.html */
+body.page-sobremi {
+    background: #faf9f7;
+    color: rgba(0, 0, 0, 0.9);
+    padding-top: 0;
+}
+
+body.page-sobremi .logo img {
+    filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(1800%) hue-rotate(305deg) brightness(100%) contrast(95%);
+}
+
+/* Proyectos page - proyectos.html */
+body.page-proyectos {
+    background: #f9f7f4;
+    color: rgba(0, 0, 0, 0.9);
+    padding-top: 0;
+}
+
+body.page-proyectos .top-bar {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+}
+
+body.page-proyectos .main-nav a {
+    color: #FD408D;
+}
+
+body.page-proyectos .logo img {
+    filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(1800%) hue-rotate(305deg) brightness(100%) contrast(95%);
+}
+
+
+/* ==========================================================================
+   2. PAGE: INICIO (index.html)
+   ========================================================================== */
+
+.inicio {
+    padding: 0;
+}
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: grid;
+    align-items: end;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%;
+    background: url('./indexbackground.png') center top / cover no-repeat;
+}
+
+.hero-content {
+    position: relative;
+    width: min(1100px, 94vw);
+    margin: 0 auto;
+    padding: 48px 0 72px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.hero-collage {
+    position: relative;
+    width: min(900px, 94vw);
+    max-height: 560px;
+    aspect-ratio: 16 / 9;
+}
+
+.hero-img {
+    position: absolute;
+    display: block;
+}
+
+.hero-img--postcard {
+    width: 58%;
+    left: 18%;
+    top: -5%;
+}
+
+.hero-img--mirror {
+    width: 22%;
+    right: 20%;
+    bottom: -5%;
+}
+
+.hero-img--papertab {
+    width: 30%;
+    left: 10%;
+    top: 5%;
+}
+
+/* Navbar over hero on index */
+body.page-inicio .top-bar {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.45),
+        rgba(0, 0, 0, 0)
+    );
+}
+
+.hero-card {
+    width: min(560px, 92vw);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+    padding: 22px 22px 20px;
+}
+
+.hero-kicker {
+    margin: 0 0 6px;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.55);
+}
+
+.hero-title {
+    margin: 0 0 8px;
+    font-size: clamp(28px, 4.6vw, 44px);
+    font-weight: 800;
+    font-family: helvetica neue;
+}
+
+.hero-subtitle {
+    margin: 0 0 18px;
+    color: rgba(0, 0, 0, 0.72);
+    font-size: 14px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Index: section with project grid & connect */
+.section {
+    padding: 64px 24px;
+}
+
+.section-inner {
+    width: min(1100px, 94vw);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-heading {
+    position: relative;
+    display: inline-block;
+    margin: 0 auto 22px;
+}
+
+.section-heading-tape {
+    display: block;
+    width: min(280px, 70vw);
+}
+
+.section-heading .section-title {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.section-title {
+    margin: 0 0 22px;
+    font-size: clamp(22px, 3.2vw, 32px);
+    font-weight: 800;
+    font-family: helvetica neue;
+    text-align: center;
+}
+
+.section-title__accent {
+    color: #e64c8a;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.project-card {
+    text-decoration: none;
+    color: inherit;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    transform: translateY(0);
+    transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.16);
+}
+
+.project-thumb {
+    height: 150px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.02));
+}
+
+.project-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.project-label {
+    padding: 14px 16px 16px;
+    font-weight: 800;
+    font-family: helvetica neue;
+    color: #e64c8a;
+    font-style: italic;
+    text-align: center;
+}
+
+.section--connect {
+    background: linear-gradient(120deg, rgba(230, 76, 138, 0.14), rgba(0, 0, 0, 0.02));
+}
+
+.connect {
+    display: flex;
+    justify-content: center;
+}
+
+.connect-card {
+    width: min(820px, 94vw);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.14);
+    padding: 24px;
+    text-align: center;
+}
+
+.connect-title {
+    margin: 0 0 10px;
+    font-size: 28px;
+    font-weight: 900;
+    font-family: helvetica neue;
+}
+
+.connect-text {
+    margin: 0 0 18px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.connect-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.connect-socials {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.connect-socials__icon {
+    display: inline-flex;
+    width: 44px;
+}
+
+.connect-socials__icon img {
+    width: 100%;
+    display: block;
+}
+
+
+/* ==========================================================================
+   3. PAGE: PROYECTOS (proyectos.html)
+   ========================================================================== */
+
+/* ----- 3.1 Shared layout (all projects) ----- */
+.proyectos-main {
+    position: relative;
+    z-index: 1;
+    min-height: calc(100vh - 70px);
+    padding: 98px 24px 64px;
+}
+
+.proyectos-inner {
+    width: min(880px, 94vw);
+    margin: 0 auto;
+}
+
+.proyecto {
+    position: relative;
+    margin-bottom: 120px;
+    padding: 48px 40px 64px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 24px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.proyecto:last-child {
+    margin-bottom: 0;
+}
+
+.proyecto-star {
+    position: absolute;
+    bottom: -8%;
+    max-width: 320px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.proyecto-star--left {
+    left: -12%;
+    transform: rotate(-8deg);
+}
+
+.proyecto-star--right {
+    right: -10%;
+    transform: rotate(25deg);
+}
+
+.proyecto-collage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    z-index: 1;
+}
+
+.proyecto-collage > * {
+    position: absolute;
+}
+
+.proyecto-titulo {
+    display: block;
+    max-width: 38%;
+    height: auto;
+}
+
+.proyecto-descripcion {
+    margin: 0;
+    font-size: clamp(12px, 1.4vw, 15px);
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.78);
+}
+
+.proyecto-descripcion--small {
+    font-size: clamp(11px, 1.2vw, 14px);
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.proyecto-imagenes img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.proyecto-imagenes-cluster {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4%;
+}
+
+.proyecto-imagenes-cluster img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 1;
+}
+
+.proyecto-graficas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3%;
+}
+
+.proyecto-graficas img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.proyecto-collage-float {
+    position: relative;
+    margin: 0 auto;
+}
+
+.proyecto-collage-float .collage-img {
+    position: absolute;
+    display: block;
+    object-fit: contain;
+    height: auto;
+}
+
+.proyecto-header {
+    text-align: center;
+}
+
+.proyecto-header .proyecto-titulo {
+    display: block;
+    margin: 0 auto;
+    max-width: 50%;
+}
+
+.proyecto-header--left {
+    text-align: left;
+}
+
+.proyecto-header--left .proyecto-titulo {
+    margin: 0;
+}
+
+.proyecto-header--right {
+    text-align: right;
+}
+
+.proyecto-header--right .proyecto-titulo {
+    margin: 0 0 0 auto;
+}
+
+/* ----- 3.2 Project: STARBUCKS ----- */
+.proyecto-collage--starbucks {
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.proyecto-collage--starbucks > * {
+    position: static;
+}
+
+.proyecto-starbucks-header {
+    text-align: center;
+}
+
+.proyecto-collage--starbucks .proyecto-titulo {
+    display: block;
+    margin: -2% 4%;
+    max-width: 50%;
+}
+
+.proyecto-starbucks-mid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.proyecto-collage--starbucks .proyecto-descripcion {
+    margin: -10% 0 0 25%;
+    text-align: center;
+    padding-right: 0px;
+}
+
+.proyecto-starbucks-hero {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.proyecto-starbucks-hero img {
+    max-width: 60%;
+    margin-top: -25%;
+    margin-right: 20%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.proyecto-collage-float--starbucks {
+    width: 100%;
+    max-width: 540px;
+    min-height: 400px;
+}
+
+.proyecto-collage-float--starbucks .collage-img--1 { top: 65%; left: 35%; width: 25%; transform: rotate(-3deg); z-index: 2; }
+.proyecto-collage-float--starbucks .collage-img--2 { top: 65%; right: 14%; left: auto; width: 25%; transform: rotate(2deg); z-index: 1; }
+.proyecto-collage-float--starbucks .collage-img--3 { bottom: 0%; left: 5%; width: 15%; transform: rotate(-5deg); z-index: 2; }
+.proyecto-collage-float--starbucks .collage-img--4 { bottom: 2%; left: 15%; width: 12%; transform: rotate(3deg); z-index: 2; }
+.proyecto-collage-float--starbucks .collage-img--5 { top: 60%; left: 8%; width: 25%; transform: rotate(1deg); z-index: 1; }
+
+/* ----- 3.3 Project: LADY PINK ----- */
+.proyecto-collage--ladypink {
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.proyecto-collage--ladypink > * {
+    position: static;
+}
+
+.proyecto-ladypink-mid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+.proyecto-ladypink-visual {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    justify-content: center;
+}
+
+.proyecto-ladypink-visual .proyecto-img-destacada {
+    max-width: 150%;
+    width: 150%;
+    height: auto;
+    display: block;
+    transform: rotate(4deg);
+}
+
+.proyecto-collage--ladypink .proyecto-descripcion {
+    margin: 0;
+    text-align: center;
+    max-width: 400px;
+    padding: 0 16px;
+}
+
+
+/* ----- 3.4 Project: REFRANES DE ECUADOR ----- */
+.proyecto-collage--refranes {
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.proyecto-collage--refranes > * {
+    position: static;
+}
+
+.proyecto-collage-float--refranes {
+    width: 100%;
+    max-width: 480px;
+    min-height: 320px;
+}
+
+.proyecto-collage-float--refranes .collage-img--1 { top: 30%; left: 2%; width: 28%; }
+.proyecto-collage-float--refranes .collage-img--2 { top: 30%; left: 36%; width: 28%; }
+.proyecto-collage-float--refranes .collage-img--3 { top: 30%; right: 2%; left: auto; width: 28%; }
+.proyecto-collage-float--refranes .collage-img--4 { bottom: 9%; left: 18%; width: 26%; }
+.proyecto-collage-float--refranes .collage-img--5 { bottom: 9%; left: 50%; width: 26%; }
+
+.proyecto-refranes-text {
+    text-align: center;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.proyecto-collage--refranes .proyecto-titulo {
+    margin-top: -8%;
+}
+
+/* ----- 3.5 Project: DIABLADA DE PÍLLARO ----- */
+.proyecto-collage--diablada {
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.proyecto-collage--diablada .proyecto-titulo {
+    height: 20%;
+}
+
+.proyecto-collage--diablada > * {
+    position: static;
+}
+
+.proyecto-diablada-mid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.proyecto-collage--diablada .proyecto-descripcion {
+    text-align: left;
+    max-width: 480px;
+    margin: 0 20% 0 60%;
+    order: 1;
+}
+
+.proyecto-diablada-mid .proyecto-collage-float {
+    order: 2;
+    margin-top: 24px;
+}
+
+.proyecto-collage-float--diablada {
+    width: 100%;
+    max-width: 520px;
+    min-height: 420px;
+}
+
+.proyecto-collage-float--diablada .collage-img--1 { top: -40%; left: -10%; width: 15%; transform: rotate(-4deg); z-index: 3; }
+.proyecto-collage-float--diablada .collage-img--2 { top: -85%; left: -2%; width: 40%; transform: rotate(2deg); z-index: 2; }
+.proyecto-collage-float--diablada .collage-img--3 { bottom: 20%; left: 55%; width: 55%; transform: rotate(10deg); z-index: 2; }
+.proyecto-collage-float--diablada .collage-img--4 { bottom: 0; right: -10%; left: auto; width: 35%; transform: rotate(4deg); z-index: 3; }
+
+/* ----- 3.6 Project: USFQ STICKERS ----- */
+.proyecto-collage--usfq {
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.proyecto-collage--usfq > * {
+    position: static;
+}
+
+.proyecto-collage--usfq .proyecto-header--left {
+    margin-bottom: 8px;
+}
+
+.proyecto-collage--usfq .proyecto-header--left .proyecto-titulo {
+    padding: 5px 16px;
+    max-width: none;
+    width: 45%;
+}
+
+.proyecto-usfq-mid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 28px;
+}
+
+.proyecto-usfq-mid .proyecto-collage-float {
+    flex: 0 0 auto;
+}
+
+.proyecto-collage--usfq .proyecto-descripcion {
+    flex: 1 1 280px;
+    max-width: 340px;
+    margin-left: 60%;
+    margin-top: -10%;
+    text-align: left;
+}
+
+.proyecto-collage-float--usfq {
+    width: 100%;
+    max-width: 460px;
+    min-height: 320px;
+}
+
+.proyecto-collage-float--usfq .collage-img--1 { bottom: 5%; left: -30%; width: 90%; transform: rotate(-8deg); z-index: 2; }
+.proyecto-collage-float--usfq .collage-img--3 { bottom: 80%; left: -10%; width: 70%; transform: rotate(2deg); z-index: 1; }
+.proyecto-collage-float--usfq .collage-img--4 { bottom: 30%; right: 20%; left: auto; width: 30%; z-index: 3; }
+
+/* ----- 3.7 Proyectos: Responsive ----- */
+@media (max-width: 900px) {
+    .proyecto {
+        margin-bottom: 80px;
+        padding: 28px 20px 40px;
+    }
+
+    .proyecto-star {
+        max-width: 240px;
+        opacity: 0.6;
+    }
+
+    .proyecto-starbucks-mid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .proyecto-starbucks-hero {
+        justify-content: center;
+    }
+
+    .proyecto-starbucks-hero img {
+        max-width: 70%;
+    }
+
+    .proyecto-collage-float--starbucks {
+        min-height: 320px;
+    }
+
+    .proyecto-collage-float--refranes {
+        min-height: 280px;
+    }
+
+    .proyecto-collage-float--diablada {
+        min-height: 340px;
+    }
+
+    .proyecto-collage-float--usfq {
+        min-height: 260px;
+    }
+
+    .proyecto-ladypink-visual {
+        max-width: 280px;
+    }
+
+    .proyecto-collage--ladypink .proyecto-descripcion {
+        max-width: 100%;
+    }
+
+    .proyecto-usfq-mid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/* ==========================================================================
+   4. PAGE: SOBRE MÍ (sobremi.html)
+   ========================================================================== */
+
+.about {
+    min-height: calc(100vh - 70px);
+}
+
+.about-hero {
+    position: relative;
+    z-index: 1;
+    padding: 110px 24px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-inner {
+    width: min(1120px, 94vw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 58%) minmax(0, 42%);
+    gap: 40px;
+    align-items: center;
+}
+
+.about-collage {
+    position: relative;
+    width: clamp(320px, 55vw, 640px);
+    aspect-ratio: 16 / 10;
+    max-height: 520px;
+    z-index: 1;
+}
+
+.about-img {
+    position: absolute;
+    display: block;
+    max-width: 100%;
+}
+
+.about-img--crayons {
+    width: 36%;
+    top: -14%;
+    left: -4%;
+}
+
+.about-img--star {
+    width: 500%;
+    top: -40%;
+    right: 0;
+}
+
+.about-img--headphones {
+    width: 40%;
+    top: -8%;
+    right: 6%;
+    z-index: 1;
+}
+
+.about-img--laptop {
+    width: 78%;
+    left: 0;
+    bottom: -18%;
+    z-index: 1;
+}
+
+.about-img--sticker {
+    width: 25%;
+    bottom: -5%;
+    right: 12%;
+    z-index: 3;
+}
+
+.about-text {
+    position: relative;
+    max-width: 430px;
+    z-index: 2;
+}
+
+.about-collage,
+.about-img,
+.about-text {
+    transition: all 0.3s ease-in-out;
+}
+
+.about-heading {
+    position: relative;
+    display: inline-block;
+    margin-top: 40px;
+    margin-bottom: 24px;
+}
+
+.about-heading-tape {
+    display: block;
+    width: min(280px, 70vw);
+}
+
+.about-title {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    padding: 0 12px;
+    font-size: clamp(22px, 3.2vw, 34px);
+    font-weight: 800;
+    font-family: helvetica neue;
+    color: #FD408D;
+}
+
+.about-copy {
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 500;
+    color: #FD408D;
+}
+
+.about-copy p {
+    margin: 0 0 40px;
+}
+
+.about-copy p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+    .about-inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+    }
+
+    .about-text {
+        max-width: 520px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .about-copy {
+        text-align: left;
+    }
+
+    .about-collage {
+        margin: 40px auto 0;
+    }
+
+    .about-img--laptop {
+        bottom: -1%;
+    }
+
+    .about-img--sticker {
+        bottom: -3%;
+    }
+}
+
+@media (max-width: 520px) {
+    .about-collage {
+        width: 80%;
+        aspect-ratio: 4 / 3;
+        margin: 40px auto 0;
+        top: 0;
+        left: 0;
+    }
+
+    .about-img--crayons {
+        top: -10%;
+        left: 2%;
+    }
+
+    .about-img--headphones {
+        top: 32%;
+        right: 10%;
+    }
+
+    .about-img--laptop {
+        left: 4%;
+    }
+
+    .about-img--sticker {
+        right: 15%;
+        top: 60%;
+    }
+}
+
+
+/* ==========================================================================
+   5. PAGE: CONTACTO (contactoportafolio.html)
+   ========================================================================== */
+
+.contacto {
+    min-height: calc(100vh - 70px);
+    padding: 40px 24px 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-stage {
+    width: min(1100px, 94vw);
+    position: relative;
+    padding-top: 56px;
+    transform: translateY(-220px);
+}
+
+.contact-title {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(32px, 4.6vw, 54px);
+    font-family: helvetica neue;
+    font-weight: 800;
+    text-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+    padding-bottom: 20px;
+    max-width: 50%;
+    text-align: right;
+    z-index: 5;
+}
+
+/* Success modal overlay */
+.custom-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1500;
+}
+
+.window--modal {
+    position: relative;
+    width: min(520px, 90vw);
+    height: auto;
+}
+
+.window--modal .window-body {
+    padding: 24px 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+}
+
+.window--modal p {
+    margin: 0;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.window--modal button {
+    align-self: flex-end;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 18px;
+    background: rgba(0, 0, 0, 0.86);
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.window--modal button:hover {
+    background: rgba(0, 0, 0, 0.94);
+}
+
+.window {
+    position: absolute;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.window::before {
+    content: "";
+    display: block;
+    height: 44px;
+    background: rgba(245, 245, 245, 0.9);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.window::after {
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    width: 60px;
+    height: 35px;
+    background:
+        radial-gradient(circle at 8px 7px, #ff5f57 6px, transparent 7px),
+        radial-gradient(circle at 29px 7px, #febc2e 6px, transparent 7px),
+        radial-gradient(circle at 50px 7px, #28c840 6px, transparent 7px);
+}
+
+.window-body {
+    height: calc(100% - 44px);
+}
+
+.window--photo {
+    left: 0;
+    top: 0;
+    width: min(520px, 48vw);
+    height: 470px;
+}
+
+.window--photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.window--mail {
+    right: 0;
+    top: 90px;
+    width: min(680px, 60vw);
+    height: 430px;
+}
+
+.window--mail .window-body {
+    padding: 22px 26px 26px;
+    position: relative;
+}
+
+.mail-form {
+    display: grid;
+    gap: 14px;
+}
+
+.mail-row {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.mail-row label {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.55);
+}
+
+.mail-row input,
+.mail-row textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.85);
+    font-family: inherit;
+}
+
+.mail-row textarea {
+    resize: none;
+    min-height: 140px;
+}
+
+.mail-row--message {
+    align-items: flex-start;
+}
+
+.mail-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.mail-socials {
+    position: absolute;
+    left: 26px;
+    bottom: 22px;
+    display: flex;
+    gap: 5px;
+}
+
+.mail-socials__icon {
+    display: inline-flex;
+    width: 50px;
+    padding-top: 20;
+}
+
+.mail-socials__icon img {
+    width: 100%;
+    object-fit: fill;
+    display: block;
+}
+
+.mail-actions button {
+    border: none;
+    border-radius: 20px;
+    padding: 12px 18px;
+    background: rgba(0, 0, 0, 0.86);
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.mail-actions button:hover {
+    background: rgba(0, 0, 0, 0.94);
+}
+
+@media (max-width: 750px) {
+    .contact-stage {
+        padding-top: 0;
+        transform: none;
+        margin-top: 24px;
+    }
+
+    .contact-title {
+        position: static;
+        margin: 0 auto 20px;
+        text-align: center;
+        max-width: 100%;
+        font-size: clamp(32px, 4.6vw, 54px);
+    }
+
+    .window {
+        position: relative;
+        width: 100% !important;
+        height: auto !important;
+        margin-bottom: 16px;
+    }
+
+    .window--photo,
+    .window--mail {
+        top: auto;
+        left: auto;
+        right: auto;
+    }
+
+    .window-body {
+        height: auto;
+    }
+
+    .window--photo img {
+        height: 260px;
+    }
+}
+
+
+/* ==========================================================================
+   6. SHARED: Top bar, nav, buttons, footer
+   ========================================================================== */
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    padding: 16px 40px 16px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
+    z-index: 1000;
+}
+
+.logo {
+    margin: 0;
+    padding-left: 8px;
+    padding-right: 20px;
+    padding-top: 15px;
+}
+
+.logo img {
+    height: 70px;
+    display: block;
+}
+
+.main-nav {
+    display: flex;
+    gap: 40px;
+}
+
+.main-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.main-nav a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    user-select: none;
+}
+
+.btn--primary {
+    background: rgba(0, 0, 0, 0.9);
+    color: #ffffff;
+    border-color: rgba(0, 0, 0, 0.9);
+}
+
+.btn--primary:hover {
+    background: rgba(0, 0, 0, 0.96);
+}
+
+.btn--ghost {
+    background: transparent;
+    color: rgba(0, 0, 0, 0.88);
+}
+
+.btn--ghost:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.site-footer {
+    padding: 26px 24px 40px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.55);
+    font-size: 12px;
+}
+
+
+/* ==========================================================================
+   SHARED RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    .hero-content {
+        width: 110%;
+        min-height: 100vh;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 48px 16px 40px;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    .hero-content {
+        justify-content: center;
+        padding: 34px 0 52px;
+    }
+}
